@@ -179,7 +179,7 @@ MOV BX, 10
 
 ULoop:
 XOR DX, DX
-DIV BX                       ; AX / 10, остаток → DX
+DIV BX                       
 ADD DL, '0'                  ; Число → ASCII символ (5 → '5')        
 PUSH DX                     ; Сохраняем символ
 INC CX
@@ -208,7 +208,7 @@ MOV BX, 10
 SLoop:
 XOR DX, DX
 DIV BX
-ADD DL, '0'                  ; Число → ASCII символ (5 → '5')         ;; <---
+ADD DL, '0'                  ; Число → ASCII символ (5 → '5')     
 PUSH DX
 INC CX
 TEST AX, AX
@@ -216,7 +216,7 @@ JNZ SLoop
 
 SLoopPrint:
 POP AX
-INT 29h                      ; Быстрый вывод символа (AL)             ;; <---
+INT 29h                      
 LOOP SLoopPrint
 RET
 OutputNum ENDP

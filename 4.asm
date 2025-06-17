@@ -145,9 +145,9 @@ sum_lop:
 
     ; Перевірка на переповнення
     cmp     ebx, -32768
-    jl      overflow
+    jl      overflow            ; перевірка на переповнення
     cmp     ebx, 65535
-    jg      overflow
+    jg      overflow           
 
     mov     eax, ebx
     call    print_number
