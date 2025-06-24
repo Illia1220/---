@@ -47,22 +47,18 @@ JMP StartInput
 
 MAIN ENDP
 
-;-----------------------
 ; Печать новой строки
-;-----------------------
 WriteLine PROC
-MOV DL, 10                  ; LF (Line Feed)
+MOV DL, 10                  
 MOV AH, 2
 INT 21h
-MOV DL, 13                  ; CR (Carriage Return)
+MOV DL, 13                 
 MOV AH, 2
 INT 21h
 RET
 WriteLine ENDP
 
-;-----------------------
 ; Ввод и преобразование числа
-;-----------------------
 EnterNum PROC
 Input:
 MOV BYTE PTR [SignFlag], 0   ; Сброс флага знака
@@ -103,7 +99,6 @@ Convert:
 ConvertLoop:
 OR CX, CX
 JZ EndConvert
-
 MOV BL, [DI]                 ; Получаем текущий символ
 CMP BL, '0'
 JB IncorrectErr
@@ -164,9 +159,7 @@ CALL WriteLine
 JMP Input
 EnterNum ENDP
 
-;-----------------------
 ; Вывод числа, включая знак
-;-----------------------
 OutputNum PROC NEAR
 MOV BX, Result
 CMP BYTE PTR [SignFlag], 0
@@ -181,7 +174,7 @@ ULoop:
 XOR DX, DX
 DIV BX                       
 ADD DL, '0'                  ; Число → ASCII символ (5 → '5')        
-PUSH DX                     ; Сохраняем символ
+PUSH DX                     
 INC CX
 TEST AX, AX
 JNZ ULoop

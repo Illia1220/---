@@ -152,7 +152,7 @@ index_cont:
     loop outer_lop_index
     pop bx
     cmp bx, 0
-    jne index__end                ;  Якщо хоча б один знайдений — вихід
+    jne index__end                
     lea ax, none_                 ;  Нічого не знайдено
     call println
 
