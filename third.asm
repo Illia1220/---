@@ -214,8 +214,7 @@ check_x_not_y:                          ; Перевірка x != y
     MOV CX, AX                          ; CX = x
     IMUL CX                             ; AX = x^2
     JO compute_overflow                 ; Якщо переповнення, помилка
-    CMP AX, 964                         ; 32767 / 34 ≈ 964
-    JG compute_overflow                 ; Якщо більше, помилка
+              ; Якщо більше, помилка
     MOV DX, 34                          ; DX = 34
     IMUL DX                             ; AX = 34 * x^2
     JO compute_overflow                 ; Якщо переповнення, помилка
